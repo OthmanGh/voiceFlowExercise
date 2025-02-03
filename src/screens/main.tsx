@@ -12,7 +12,9 @@ type MainScreenProps = NativeStackScreenProps<RootStackParamList, 'main'>;
 const Main = ({navigation}: MainScreenProps) => {
   return (
     <View style={styles.container}>
-      <TouchableOpacity style={styles.imageBtn}>
+      <TouchableOpacity
+        style={styles.imageBtn}
+        onPress={() => navigation.navigate(ROUTES.SETTINGS_STACK)}>
         <Image source={settingsImg} style={styles.settingsImg} />
       </TouchableOpacity>
       <Text style={styles.text}>Main Screen</Text>

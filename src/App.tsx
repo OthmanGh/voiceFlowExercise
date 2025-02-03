@@ -7,6 +7,7 @@ import {COLORS} from './styles/colors';
 import Main from './screens/main';
 import VoiceBot from './screens/voicebot';
 import {RootStackParamList} from './types';
+import settingsStack from './navigation/settingsStack';
 
 const RootStack = createNativeStackNavigator<RootStackParamList>();
 
@@ -38,6 +39,11 @@ const App = () => {
             fullScreenGestureEnabled: true,
             animation: 'slide_from_bottom',
           }}
+        />
+
+        <RootStack.Screen
+          name={ROUTES.SETTINGS_STACK}
+          component={settingsStack}
         />
       </RootStack.Navigator>
     </NavigationContainer>

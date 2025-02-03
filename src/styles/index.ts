@@ -68,4 +68,15 @@ export const styles = StyleSheet.create({
     top: 20,
     left: 20,
   },
+
+  settingsContentContainer: {
+    height: '100%',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+
+  settingsTitle: {
+    fontSize: 28,
+    fontWeight: '700',
+  },
 });

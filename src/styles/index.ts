@@ -70,6 +70,8 @@ export const styles = StyleSheet.create({
   },
 
   settingsContentContainer: {
+    display: 'flex',
+    gap: 30,
     height: '100%',
     alignItems: 'center',
     justifyContent: 'center',

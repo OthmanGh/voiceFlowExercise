@@ -6,6 +6,8 @@ export const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+    backgroundColor: COLORS.light_gray,
+    position: 'relative',
   },
 
   screenText: {
@@ -54,5 +56,16 @@ export const styles = StyleSheet.create({
   text: {
     fontSize: 24,
     fontWeight: '700',
+  },
+
+  settingsImg: {
+    width: 30,
+    height: 30,
+  },
+
+  imageBtn: {
+    position: 'absolute',
+    top: 20,
+    left: 20,
   },
 });

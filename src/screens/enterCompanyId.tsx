@@ -2,11 +2,11 @@ import React from 'react';
 import {Text, View} from 'react-native';
 import {styles} from '../styles';
 
-const enterCompanyId = () => {
+const EnterCompanyId = () => {
   return (
     <View style={styles.container}>
       <Text style={styles.text}>Enter Company Id Screen</Text>
     </View>
   );
 };
-export default enterCompanyId;
+export default EnterCompanyId;

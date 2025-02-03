@@ -4,6 +4,7 @@ export type RootStackParamList = {
   [ROUTES.ON_BOARDING_STACK]: undefined;
   [ROUTES.MAIN]: undefined;
   [ROUTES.VOICE_BOT]: undefined;
+  [ROUTES.SETTINGS_STACK]: undefined; // Add settings stack to RootStack
 };
 
 export type OnBoardingStackParamList = {
@@ -20,5 +21,8 @@ export type VoicebotParamList = {
 };
 
 export type SettingsStackParamList = {
-  [ROUTES.MAIN]: undefined;
+  [ROUTES.SETTINGS]: undefined;
+  [ROUTES.SET_COMPANY_ID]: undefined;
+  [ROUTES.ENTER_COMPANY_ID]: undefined;
+  [ROUTES.PICK_VOICE]: undefined;
 };

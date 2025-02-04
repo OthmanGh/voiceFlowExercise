@@ -8,12 +8,13 @@ import EnterCompanyId from '../screens/enterCompanyId';
 import {SettingsStackParamList} from '../types';
 import {COLORS} from '../styles/colors';
 
-const SettingsStack = createNativeStackNavigator<SettingsStackParamList>();
+const SettingsStackScreens =
+  createNativeStackNavigator<SettingsStackParamList>();
 
-const settingsStack = () => {
+const SettingsStack = () => {
   return (
-    <SettingsStack.Navigator>
-      <SettingsStack.Screen
+    <SettingsStackScreens.Navigator initialRouteName={ROUTES.SETTINGS}>
+      <SettingsStackScreens.Screen
         name={ROUTES.SETTINGS}
         component={Settings}
         options={{
@@ -24,7 +25,7 @@ const settingsStack = () => {
         }}
       />
 
-      <SettingsStack.Screen
+      <SettingsStackScreens.Screen
         name={ROUTES.SET_COMPANY_ID}
         component={SetCompanyId}
         options={{
@@ -34,7 +35,7 @@ const settingsStack = () => {
         }}
       />
 
-      <SettingsStack.Screen
+      <SettingsStackScreens.Screen
         name={ROUTES.ENTER_COMPANY_ID}
         component={EnterCompanyId}
         options={{
@@ -44,7 +45,7 @@ const settingsStack = () => {
         }}
       />
 
-      <SettingsStack.Screen
+      <SettingsStackScreens.Screen
         name={ROUTES.PICK_VOICE}
         component={PickVoice}
         options={{
@@ -53,8 +54,8 @@ const settingsStack = () => {
           headerTintColor: COLORS.dark_gray,
         }}
       />
-    </SettingsStack.Navigator>
+    </SettingsStackScreens.Navigator>
   );
 };
 
-export default settingsStack;
+export default SettingsStack;

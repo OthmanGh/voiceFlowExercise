@@ -8,24 +8,25 @@ import PickVoice from '../screens/pickVoice';
 import {OnBoardingStackParamList} from '../types';
 import {COLORS} from '../styles/colors';
 
-const OnBoardingStack = createNativeStackNavigator<OnBoardingStackParamList>();
+const OnBoardingStackScreens =
+  createNativeStackNavigator<OnBoardingStackParamList>();
 
-const onBoardingStack = () => {
+const OnBoardingStack = () => {
   return (
-    <OnBoardingStack.Navigator initialRouteName={ROUTES.SPLASH}>
-      <OnBoardingStack.Screen
+    <OnBoardingStackScreens.Navigator initialRouteName={ROUTES.SPLASH}>
+      <OnBoardingStackScreens.Screen
         name={ROUTES.SPLASH}
         component={Splash}
         options={{headerShown: false}}
       />
 
-      <OnBoardingStack.Screen
+      <OnBoardingStackScreens.Screen
         name={ROUTES.WELCOME}
         component={Welcome}
         options={{headerShown: false}}
       />
 
-      <OnBoardingStack.Screen
+      <OnBoardingStackScreens.Screen
         name={ROUTES.ENTER_COMPANY_ID}
         component={EnterCompanyId}
         options={{
@@ -35,7 +36,7 @@ const onBoardingStack = () => {
         }}
       />
 
-      <OnBoardingStack.Screen
+      <OnBoardingStackScreens.Screen
         name={ROUTES.PICK_VOICE}
         component={PickVoice}
         options={{
@@ -44,7 +45,8 @@ const onBoardingStack = () => {
           headerTintColor: COLORS.dark_gray,
         }}
       />
-    </OnBoardingStack.Navigator>
+    </OnBoardingStackScreens.Navigator>
   );
 };
-export default onBoardingStack;
+
+export default OnBoardingStack;

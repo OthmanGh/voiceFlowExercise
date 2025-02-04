@@ -1,29 +1,80 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {NavigationContainer} from '@react-navigation/native';
+import {
+  CommonActions,
+  createNavigationContainerRef,
+  NavigationContainer,
+} from '@react-navigation/native';
 import {ROUTES} from './constants/routes';
-import onBoardingStack from './navigation/onBoardingStack';
 import {COLORS} from './styles/colors';
 import Main from './screens/main';
 import VoiceBot from './screens/voicebot';
 import {RootStackParamList} from './types';
-import settingsStack from './navigation/settingsStack';
+import SettingsStack from './navigation/settingsStack';
+import OnBoardingStack from './navigation/onBoardingStack';
+import linking from './linking';
+import {Linking} from 'react-native';
 
 const RootStack = createNativeStackNavigator<RootStackParamList>();
+const navigationRef = createNavigationContainerRef();
 
 const App = () => {
+  const [initialRoute, setInitialRoute] = useState<keyof RootStackParamList>(
+    ROUTES.ON_BOARDING_STACK,
+  );
+
+  useEffect(() => {
+    const checkInitialLink = async () => {
+      const url = await Linking.getInitialURL();
+      if (url?.includes('setcompanyid')) {
+        setInitialRoute(ROUTES.SETTINGS_STACK);
+      }
+    };
+
+    checkInitialLink();
+  }, []);
+
+  useEffect(() => {
+    const handleDeepLink = (event: {url: string}) => {
+      if (event.url.includes('setcompanyid')) {
+        navigationRef.current?.dispatch(
+          CommonActions.reset({
+            index: 1,
+            routes: [
+              {
+                name: ROUTES.SETTINGS_STACK,
+                state: {
+                  routes: [
+                    {name: ROUTES.SETTINGS},
+                    {name: ROUTES.SET_COMPANY_ID},
+                  ],
+                },
+              },
+            ],
+          }),
+        );
+      }
+    };
+
+    Linking.addEventListener('url', handleDeepLink);
+
+    return () => {
+      Linking.removeAllListeners('url');
+    };
+  }, []);
+
   return (
-    <NavigationContainer>
+    <NavigationContainer ref={navigationRef} linking={linking} fallback={null}>
       <RootStack.Navigator
-        initialRouteName={ROUTES.ON_BOARDING_STACK}
         screenOptions={{
           statusBarAnimation: 'slide',
           statusBarBackgroundColor: COLORS.primary,
           headerShown: false,
-        }}>
+        }}
+        initialRouteName={initialRoute}>
         <RootStack.Screen
           name={ROUTES.ON_BOARDING_STACK}
-          component={onBoardingStack}
+          component={OnBoardingStack}
         />
 
         <RootStack.Screen
@@ -43,7 +94,7 @@ const App = () => {
 
         <RootStack.Screen
           name={ROUTES.SETTINGS_STACK}
-          component={settingsStack}
+          component={SettingsStack}
         />
       </RootStack.Navigator>
     </NavigationContainer>

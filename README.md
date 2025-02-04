@@ -1,97 +1,98 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# VoiceFlowExercise
 
-# Getting Started
+## Table of Contents
 
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+- [Introduction](#introduction)
+- [Prerequisites](#prerequisites)
+- [Installation](#installation)
+- [Running the App](#running-the-app)
+- [Deep Linking](#deep-linking)
+- [Project Structure](#project-structure)
 
-## Step 1: Start Metro
+## Introduction
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
+This project is a React Native demo application that implements a structured navigation flow using React Native Navigation, along with deep linking support. The app consists of:
 
-To start the Metro dev server, run the following command from the root of your React Native project:
+- A splash screen
+- An onboarding flow
+- A main screen with settings and voicebot functionality
+- A deep link implementation for direct navigation
+
+## Prerequisites
+
+Before setting up and running the project, ensure you have the following installed and configured:
+
+- [Java JDK 17](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html)
+- [Android Studio](https://developer.android.com/studio)
+- Node.js (LTS version recommended)
+- npm or yarn
+- React Native CLI
+- Environment variables configured properly for React Native development ([Setup Guide](https://reactnative.dev/docs/set-up-your-environment))
+
+## Installation
+
+1. Clone the repository:
+   ```sh
+   git clone https://github.com/OthmanGh/voiceFlowExercise.git
+   cd voiceFlowExercise
+   ```
+2. Install dependencies:
+
+   ```sh
+   npm install
+   ```
+
+3. Ensure you have the necessary Android dependencies installed:
+   ```sh
+   cd android
+   ./gradlew clean
+   cd ..
+   ```
+
+## Running the App
+
+1. Start the Metro Bundler:
+
+   ```sh
+   npm start
+   ```
+
+2. Run the application on an Android emulator or device:
+
+   ```sh
+   npx react-native run-android
+   ```
+
+3. If needed, ensure the development server is running:
+   ```sh
+   npm start --reset-cache
+   ```
+
+## Deep Linking
+
+The app supports deep linking, allowing users to navigate directly to the "Set Company ID" screen. To test deep linking on an Android emulator or device, run the following command:
 
 ```sh
-# Using npm
-npm start
-
-# OR using Yarn
-yarn start
+adb shell am start -W -a android.intent.action.VIEW -d "voiceflowexercise://setcompanyid"
 ```
 
-## Step 2: Build and run your app
+## Project Structure
 
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
-
-### Android
-
-```sh
-# Using npm
-npm run android
-
-# OR using Yarn
-yarn android
 ```
-
-### iOS
-
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
-
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
-
-```sh
-bundle install
+VoiceFlowExercise/
+│── android/                 # Android-specific files
+│── ios/                     # iOS-specific files
+│── src/
+│   ├── assets/              # Static assets (images, icons, etc.)
+│   ├── components/          # Reusable UI components
+│   ├── constants/           # Global constants
+│   ├── navigation/          # Navigation stacks
+│   ├── screens/             # All app screens
+│   ├── styles/              # Global styles
+│   ├── types/               # TypeScript type definitions
+│   ├── App.tsx              # Entry point of the application
+│   ├── linking.ts           # Deep linking configuration
+│── package.json             # Project dependencies and scripts
+│── README.md                # Documentation
+│── tsconfig.json            # TypeScript configuration
 ```
-
-Then, and every time you update your native dependencies, run:
-
-```sh
-bundle exec pod install
-```
-
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
-
-```sh
-# Using npm
-npm run ios
-
-# OR using Yarn
-yarn ios
-```
-
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
-
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
-
-## Step 3: Modify your app
-
-Now that you have successfully run the app, let's make changes!
-
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
-
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
-
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
-
-## Congratulations! :tada:
-
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.

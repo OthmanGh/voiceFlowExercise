@@ -14,6 +14,7 @@ import SettingsStack from './navigation/settingsStack';
 import OnBoardingStack from './navigation/onBoardingStack';
 import linking from './linking';
 import {Linking} from 'react-native';
+import BootSplash from 'react-native-bootsplash';
 
 const RootStack = createNativeStackNavigator<RootStackParamList>();
 const navigationRef = createNavigationContainerRef();
@@ -22,6 +23,17 @@ const App = () => {
   const [initialRoute, setInitialRoute] = useState<keyof RootStackParamList>(
     ROUTES.ON_BOARDING_STACK,
   );
+
+  useEffect(() => {
+    const init = async () => {};
+
+    init().finally(async () => {
+      setTimeout(async () => {
+        await BootSplash.hide({fade: true});
+        console.log('BootSplash has been hidden successfully');
+      }, 3000);
+    });
+  }, []);
 
   useEffect(() => {
     const checkInitialLink = async () => {

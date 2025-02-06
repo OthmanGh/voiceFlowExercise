@@ -17,7 +17,7 @@ const PickVoice = ({navigation}: PickVoiceScreenProps) => {
       <Text style={styles.text}>Pick Voice Screen</Text>
       <NavigateButton
         label="Dismiss"
-        onPress={() => navigation.replace(ROUTES.MAIN)}
+        onPress={() => navigation.replace(ROUTES.MAIN_STACK)}
       />
     </View>
   );

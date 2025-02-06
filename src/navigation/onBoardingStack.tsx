@@ -1,6 +1,5 @@
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import React from 'react';
-import Splash from '../screens/splash';
 import {ROUTES} from '../constants/routes';
 import Welcome from '../screens/welcome';
 import EnterCompanyId from '../screens/enterCompanyId';
@@ -13,13 +12,7 @@ const OnBoardingStackScreens =
 
 const OnBoardingStack = () => {
   return (
-    <OnBoardingStackScreens.Navigator initialRouteName={ROUTES.SPLASH}>
-      <OnBoardingStackScreens.Screen
-        name={ROUTES.SPLASH}
-        component={Splash}
-        options={{headerShown: false}}
-      />
-
+    <OnBoardingStackScreens.Navigator initialRouteName={ROUTES.WELCOME}>
       <OnBoardingStackScreens.Screen
         name={ROUTES.WELCOME}
         component={Welcome}

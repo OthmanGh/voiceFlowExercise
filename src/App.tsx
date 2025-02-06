@@ -7,14 +7,13 @@ import {
 } from '@react-navigation/native';
 import {ROUTES} from './constants/routes';
 import {COLORS} from './styles/colors';
-import Main from './screens/main';
-import VoiceBot from './screens/voicebot';
 import {RootStackParamList} from './types';
 import SettingsStack from './navigation/settingsStack';
 import OnBoardingStack from './navigation/onBoardingStack';
 import linking from './linking';
 import {Linking} from 'react-native';
 import BootSplash from 'react-native-bootsplash';
+import MainStack from './navigation/mainStack';
 
 const RootStack = createNativeStackNavigator<RootStackParamList>();
 const navigationRef = createNavigationContainerRef();
@@ -89,20 +88,7 @@ const App = () => {
           component={OnBoardingStack}
         />
 
-        <RootStack.Screen
-          name={ROUTES.MAIN}
-          component={Main}
-          options={{animation: 'fade_from_bottom', gestureEnabled: true}}
-        />
-
-        <RootStack.Screen
-          name={ROUTES.VOICE_BOT}
-          component={VoiceBot}
-          options={{
-            fullScreenGestureEnabled: true,
-            animation: 'slide_from_bottom',
-          }}
-        />
+        <RootStack.Screen name={ROUTES.MAIN_STACK} component={MainStack} />
 
         <RootStack.Screen
           name={ROUTES.SETTINGS_STACK}

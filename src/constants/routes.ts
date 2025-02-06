@@ -7,6 +7,9 @@ export const ROUTES = {
   MAIN: 'main',
   VOICE_BOT: 'voicebot',
   SETTINGS: 'settings',
+
+  //* Navigation Stack Routes
   ON_BOARDING_STACK: 'onboardingstack',
   SETTINGS_STACK: 'settingsstack',
+  MAIN_STACK: 'mainstack',
 } as const;

@@ -2,20 +2,20 @@ import {ROUTES} from '../constants/routes';
 
 export type RootStackParamList = {
   [ROUTES.ON_BOARDING_STACK]: undefined;
-  [ROUTES.MAIN]: undefined;
-  [ROUTES.VOICE_BOT]: undefined;
-  [ROUTES.SETTINGS_STACK]: undefined; // Add settings stack to RootStack
+  [ROUTES.SETTINGS_STACK]: undefined;
+  [ROUTES.MAIN_STACK]: undefined;
 };
 
+//******************/
+
 export type OnBoardingStackParamList = {
-  [ROUTES.SPLASH]: undefined;
   [ROUTES.WELCOME]: undefined;
   [ROUTES.ENTER_COMPANY_ID]: undefined;
   [ROUTES.PICK_VOICE]: undefined;
-  [ROUTES.MAIN]: undefined;
+  [ROUTES.MAIN_STACK]: undefined;
 };
 
-export type VoicebotParamList = {
+export type MainStackParamList = {
   [ROUTES.MAIN]: undefined;
   [ROUTES.VOICE_BOT]: undefined;
 };

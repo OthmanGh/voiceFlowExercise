@@ -88,7 +88,11 @@ const App = () => {
           component={OnBoardingStack}
         />
 
-        <RootStack.Screen name={ROUTES.MAIN_STACK} component={MainStack} />
+        <RootStack.Screen
+          name={ROUTES.MAIN_STACK}
+          component={MainStack}
+          options={{animation: 'slide_from_bottom'}}
+        />
 
         <RootStack.Screen
           name={ROUTES.SETTINGS_STACK}

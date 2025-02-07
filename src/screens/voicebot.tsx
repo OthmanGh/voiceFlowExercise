@@ -2,13 +2,10 @@ import React from 'react';
 import {Text, View} from 'react-native';
 import {styles} from '../styles';
 import NavigateButton from '../components/NavigateButton';
-import {VoicebotParamList} from '../types';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
+import {MainStackParamList} from '../types';
 
-type VoiceBotScreenProps = NativeStackScreenProps<
-  VoicebotParamList,
-  'voicebot'
->;
+type VoiceBotScreenProps = NativeStackScreenProps<MainStackParamList>;
 
 const VoiceBot = ({navigation}: VoiceBotScreenProps) => {
   return (

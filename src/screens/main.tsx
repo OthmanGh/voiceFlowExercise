@@ -5,9 +5,9 @@ import {settingsImg} from '../constants/images';
 import NavigateButton from '../components/NavigateButton';
 import {ROUTES} from '../constants/routes';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
-import {RootStackParamList} from '../types';
+import {MainStackParamList} from '../types';
 
-type MainScreenProps = NativeStackScreenProps<RootStackParamList, 'main'>;
+type MainScreenProps = NativeStackScreenProps<MainStackParamList>;
 
 const Main = ({navigation}: MainScreenProps) => {
   return (
@@ -18,6 +18,7 @@ const Main = ({navigation}: MainScreenProps) => {
         <Image source={settingsImg} style={styles.settingsImg} />
       </TouchableOpacity>
       <Text style={styles.text}>Main Screen</Text>
+
       <NavigateButton
         label="Launch Voicebot screen"
         onPress={() => navigation.push(ROUTES.VOICE_BOT)}

@@ -6,10 +6,7 @@ import {ROUTES} from '../constants/routes';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {OnBoardingStackParamList} from '../types';
 
-type PickVoiceScreenProps = NativeStackScreenProps<
-  OnBoardingStackParamList,
-  'pickvoice'
->;
+type PickVoiceScreenProps = NativeStackScreenProps<OnBoardingStackParamList>;
 
 const PickVoice = ({navigation}: PickVoiceScreenProps) => {
   return (
@@ -17,7 +14,7 @@ const PickVoice = ({navigation}: PickVoiceScreenProps) => {
       <Text style={styles.text}>Pick Voice Screen</Text>
       <NavigateButton
         label="Dismiss"
-        onPress={() => navigation.replace(ROUTES.MAIN_STACK)}
+        onPress={() => navigation.navigate(ROUTES.MAIN_STACK)}
       />
     </View>
   );

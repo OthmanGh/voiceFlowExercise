@@ -43,7 +43,7 @@ const Settings = () => {
         backdropComponent={renderBackdrop}
         onChange={index => {
           if (index === -1) {
-            navigation.pop();
+            navigation.replace(ROUTES.MAIN_STACK);
           }
         }}>
         <BottomSheetView style={styles.settingsContentContainer}>

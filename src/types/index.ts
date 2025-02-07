@@ -18,6 +18,7 @@ export type OnBoardingStackParamList = {
 export type MainStackParamList = {
   [ROUTES.MAIN]: undefined;
   [ROUTES.VOICE_BOT]: undefined;
+  [ROUTES.SETTINGS_STACK]: undefined;
 };
 
 export type SettingsStackParamList = {
@@ -25,4 +26,5 @@ export type SettingsStackParamList = {
   [ROUTES.SET_COMPANY_ID]: undefined;
   [ROUTES.ENTER_COMPANY_ID]: undefined;
   [ROUTES.PICK_VOICE]: undefined;
+  [ROUTES.MAIN_STACK]: undefined;
 };
